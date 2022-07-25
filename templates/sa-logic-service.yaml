@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sa-logic
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - nodePort: 31816
+      port: {{ .Values.service.port }}
+      protocol: TCP
+      targetPort: 5000
+  selector:
+    app: sa-logic
